@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>DIU Academic Calendar 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary: #0a4b6e;
+            --primary-light: #1a7aa8;
+            --primary-dark: #06324b;
+            --secondary: #00a86b;
+            --secondary-light: #34c98e;
+            --accent: #f39c12;
+            --accent-light: #f7c948;
+            --bg-body: #f2f6fc;
+            --bg-card: #ffffff;
+            --text-primary: #1a2a3a;
+            --text-secondary: #4a5a6a;
+            --text-light: #7a8a9a;
+            --shadow-sm: 0 2px 8px rgba(10, 75, 110, 0.08);
+            --shadow-md: 0 8px 32px rgba(10, 75, 110, 0.12);
+            --shadow-lg: 0 16px 56px rgba(10, 75, 110, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Hind Siliguri', 'Segoe UI', sans-serif;
+        }
+
+        /* ===== Reset & Base ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-body);
+            color: var(--text-primary);
+            padding: 16px;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e9edf2;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 8px;
+        }
+
+        /* ===== Container ===== */
+        .app {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ===== Top Bar ===== */
+        .topbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
+            padding: 14px 22px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topbar-brand .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+            box-shadow: 0 4px 10px rgba(10, 75, 110, 0.25);
+        }
+
+        .topbar-brand h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .topbar-brand h1 span {
+            font-weight: 300;
+            color: var(--text-light);
+            font-size: 13px;
+            display: block;
+        }
+
+        .topbar-clock {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(10, 75, 110, 0.3);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .topbar-clock .dot {
+            width: 10px;
+            height: 10px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 1.5s infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.85);
+            }
+        }
+
+        /* ===== Bismillah ===== */
+        .bismillah-wrap {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(0, 168, 107, 0.2);
+        }
+
+        /* ===== Hero Header ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            padding: 28px 32px;
+            border-radius: var(--radius-lg);
+            color: #fff;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 34px);
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.3px;
+        }
+        .hero p {
+            font-size: clamp(14px, 1.8vw, 17px);
+            opacity: 0.85;
+            margin-top: 4px;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+        .hero .badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== Semester Tabs (Mobile friendly) ===== */
+        .semester-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .semester-tab {
+            background: var(--bg-card);
+            padding: 14px 10px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-sm);
+            cursor: default;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+        .semester-tab.active {
+            border-bottom-color: var(--secondary);
+            color: var(--primary);
+            background: #f0faf5;
+        }
+        .semester-tab.summer {
+            border-bottom-color: var(--accent);
+            background: #fffbf0;
+            color: #b9770e;
+        }
+        .semester-tab .emoji {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 2px;
+        }
+
+        /* ===== Card / Table Wrapper ===== */
+        .table-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            padding: 4px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ===== Table ===== */
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 680px;
+        }
+
+        .calendar-table thead th {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        .calendar-table thead th:first-child {
+            text-align: left;
+            border-radius: 0;
+        }
+        .calendar-table thead th.summer-head {
+            background: #d97706;
+            position: relative;
+        }
+        .calendar-table thead th.summer-head::after {
+            content: '🔥';
+            margin-left: 6px;
+            font-size: 16px;
+        }
+
+        .calendar-table tbody td {
+            padding: 13px 16px;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: middle;
+            color: var(--text-primary);
+            transition: background 0.2s;
+        }
+        .calendar-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: #f8faff;
+            border-right: 2px solid #e8edf4;
+            font-size: 13px;
+        }
+
+        /* Semester columns */
+        .calendar-table tbody td.col-spring {
+            background: #fafcff;
+        }
+        .calendar-table tbody td.col-summer {
+            background: #fffbee;
+            border-left: 3px solid #f59e0b;
+            border-right: 3px solid #f59e0b;
+        }
+        .calendar-table tbody td.col-fall {
+            background: #fafcff;
+        }
+
+        /* Past event styling */
+        .calendar-table tbody td.past {
+            color: #aab4c0 !important;
+            text-decoration: line-through;
+            text-decoration-color: #ef4444;
+            text-decoration-thickness: 2px;
+            opacity: 0.6;
+            background: #f8fafc !important;
+        }
+
+        /* Clickable routine cell */
+        .routine-trigger {
+            background: #fff0e0 !important;
+            border: 2px dashed #e67e22 !important;
+            cursor: pointer;
+            font-weight: 700;
+            color: #b85e0a !important;
+            transition: var(--transition);
+            position: relative;
+            padding-right: 36px !important;
+        }
+        .routine-trigger:hover {
+            background: #ffe8d0 !important;
+            transform: scale(1.01);
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.2);
+        }
+        .routine-trigger .tap-hint {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: #b85e0a;
+            margin-top: 3px;
+            opacity: 0.8;
+        }
+        .routine-trigger .tap-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        /* ===== Routine Modal ===== */
+        .routine-panel {
+            display: none;
+            margin-top: 0;
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border-radius: var(--radius-md);
+            padding: 24px 28px;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 8px 30px rgba(0, 168, 107, 0.15);
+            animation: slideUp 0.4s ease-out;
+        }
+        .routine-panel.open {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .routine-panel .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .routine-panel .panel-header h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .routine-panel .panel-header .close-btn {
+            background: #eef2f6;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .routine-panel .panel-header .close-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .routine-panel .meta-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .routine-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: #fff;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .routine-table th {
+            background: var(--secondary);
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .routine-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e8f5ef;
+        }
+        .routine-table tr:last-child td {
+            border-bottom: none;
+        }
+        .routine-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: #f8fdfa;
+        }
+
+        .routine-table .exam-past td {
+            color: #aab4c0 !important;
+            text-decoration: line-through;
+            text-decoration-color: #ef4444;
+            opacity: 0.6;
+            background: #f8fafc !important;
+        }
+
+        .countdown-chip {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 50px;
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 3px solid #f59e0b;
+            margin-left: 8px;
+        }
+        .countdown-chip.live {
+            background: #fecaca;
+            color: #991b1b;
+            border-left-color: #dc2626;
+        }
+        .countdown-chip.done {
+            background: #e5e7eb;
+            color: #6b7280;
+            border-left-color: #9ca3af;
+            text-decoration: none;
+        }
+
+        /* ===== Footer ===== */
+        .footer-note {
+            background: var(--bg-card);
+            padding: 18px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-top: 3px solid var(--secondary-light);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .footer-note .note-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .footer-note .note-item .icon {
+            font-size: 18px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 14px 16px;
+            }
+            .topbar-brand h1 {
+                font-size: 16px;
+            }
+            .topbar-brand h1 span {
+                font-size: 12px;
+            }
+            .topbar-clock {
+                font-size: 13px;
+                padding: 6px 14px;
+                justify-content: center;
+            }
+            .hero {
+                padding: 20px 18px;
+            }
+            .semester-tabs {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+            .semester-tab {
+                font-size: 12px;
+                padding: 10px 6px;
+            }
+            .semester-tab .emoji {
+                font-size: 18px;
+            }
+            .calendar-table {
+                font-size: 12px;
+                min-width: 520px;
+            }
+            .calendar-table thead th {
+                padding: 10px 10px;
+                font-size: 11px;
+            }
+            .calendar-table tbody td {
+                padding: 10px 10px;
+                font-size: 12px;
+            }
+            .calendar-table tbody td:first-child {
+                font-size: 11px;
+                padding: 10px 8px;
+            }
+            .routine-trigger .tap-hint {
+                font-size: 9px;
+            }
+            .routine-panel {
+                padding: 16px 14px;
+            }
+            .routine-panel .panel-header h3 {
+                font-size: 17px;
+            }
+            .routine-table {
+                font-size: 12px;
+            }
+            .routine-table th,
+            .routine-table td {
+                padding: 8px 10px;
+            }
+            .countdown-chip {
+                font-size: 10px;
+                padding: 2px 8px;
+                margin-left: 4px;
+                display: inline-block;
+                margin-top: 2px;
+            }
+            .footer-note {
+                font-size: 12px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 14px 16px;
+            }
+            .bismillah-wrap {
+                font-size: 18px;
+                padding: 10px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topbar-brand .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 15px;
+            }
+            .topbar-brand h1 {
+                font-size: 14px;
+            }
+            .hero h2 {
+                font-size: 20px;
+            }
+            .hero .badge {
+                font-size: 12px;
+                padding: 4px 14px;
+            }
+            .calendar-table {
+                min-width: 440px;
+                font-size: 11px;
+            }
+            .calendar-table thead th {
+                padding: 8px 6px;
+                font-size: 10px;
+            }
+            .calendar-table tbody td {
+                padding: 8px 6px;
+                font-size: 11px;
+            }
+            .calendar-table tbody td:first-child {
+                font-size: 10px;
+                padding: 8px 5px;
+            }
+            .routine-trigger {
+                padding-right: 28px !important;
+            }
+            .routine-trigger .tap-icon {
+                right: 6px;
+                font-size: 14px;
+            }
+        }
+
+        /* ===== Utilities ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-8 {
+            margin-top: 8px;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+        .flex {
+            display: flex;
+        }
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        .items-center {
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ===== TOPBAR ===== -->
+        <header class="topbar">
+            <div class="topbar-brand">
+                <div class="logo-icon">DIU</div>
+                <h1>
+                    Daffodil International University
+                    <span>Academic Calendar 2026</span>
+                </h1>
+            </div>
+            <div class="topbar-clock" id="liveClock">
+                <span class="dot"></span>
+                <span id="clockText">লোড হচ্ছে...</span>
+            </div>
+        </header>
+
+        <!-- ===== BISMILLAH ===== -->
+        <div class="bismillah-wrap">
+            بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+        </div>
+
+        <!-- ===== HERO ===== -->
+        <div class="hero">
+            <h2>📅 Tri-Semester Academic Calendar – 2026</h2>
+            <p>Daffodil Smart City (DSC), Birulia, Savar, Dhaka-1216, Bangladesh</p>
+            <div class="badge">🎯 Stay Organized &amp; Succeed</div>
+        </div>
+
+        <!-- ===== SEMESTER TABS ===== -->
+        <div class="semester-tabs">
+            <div class="semester-tab active">
+                <span class="emoji">🌱</span>
+                Spring 2026
+            </div>
+            <div class="semester-tab summer">
+                <span class="emoji">☀️</span>
+                Summer 2026
+            </div>
+            <div class="semester-tab active">
+                <span class="emoji">🍂</span>
+                Fall 2026
+            </div>
+        </div>
+
+        <!-- ===== TABLE CARD ===== -->
+        <div class="table-card">
+            <div class="table-scroll">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th style="min-width:120px;">ঘটনা</th>
+                            <th style="min-width:160px;">Spring 2026</th>
+                            <th style="min-width:170px;" class="summer-head">Summer 2026</th>
+                            <th style="min-width:160px;">Fall 2026</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1: Advising & Registration -->
+                        <tr>
+                            <td>📋 Advising &amp; Registration</td>
+                            <td class="col-spring" data-date="2026-01-10">০৩–১০ জানু, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-05-15">০৯–১৫ মে, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-09-10">০৩–১০ সেপ, ২০২৬</td>
+                        </tr>
+                        <!-- Row 2: Orientation -->
+                        <tr>
+                            <td>🎓 Orientation</td>
+                            <td class="col-spring" data-date="2026-01-08">০৮ জানু, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-05-11">১১ মে, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-09-08">০৮ সেপ, ২০২৬</td>
+                        </tr>
+                        <!-- Row 3: Classes Start -->
+                        <tr>
+                            <td>📘 Classes Start</td>
+                            <td class="col-spring" data-date="2026-01-10">১০ জানু, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-05-12">১২ মে, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-09-09">০৯ সেপ, ২০২৬</td>
+                        </tr>
+                        <!-- Row 4: Eid-Ul-Adha -->
+                        <tr>
+                            <td>🕌 Eid-Ul-Adha*</td>
+                            <td class="col-spring">—</td>
+                            <td class="col-summer" data-date="2026-05-31">২৬–৩১ মে, ২০২৬</td>
+                            <td class="col-fall">—</td>
+                        </tr>
+                        <!-- Row 5: Mid-Examination (CLICKABLE) -->
+                        <tr>
+                            <td>📝 Mid-Examination</td>
+                            <td class="col-spring" data-date="2026-02-28">২২–২৮ ফেব, ২০২৬</td>
+                            <td class="col-summer routine-trigger" id="midExamCell" onclick="toggleRoutine()">
+                                <span>২৭ জুন – ০৪ জুল, ২০২৬</span>
+                                <span class="tap-hint">👆 রুটিন দেখতে চাপুন</span>
+                                <span class="tap-icon">📂</span>
+                            </td>
+                            <td class="col-fall" data-date="2026-11-04">২৮ অক্ট – ০৪ নভ, ২০২৬</td>
+                        </tr>
+                        <!-- Row 6: Eid-Ul-Fitr -->
+                        <tr>
+                            <td>🌙 Eid-Ul-Fitr*</td>
+                            <td class="col-spring" data-date="2026-03-23">১৯–২৩ মার্চ, ২০২৬</td>
+                            <td class="col-summer">—</td>
+                            <td class="col-fall">—</td>
+                        </tr>
+                        <!-- Row 7: Final Examination -->
+                        <tr>
+                            <td>📄 Final Examination</td>
+                            <td class="col-spring" data-date="2026-05-02">২৫ এপ্রি – ০২ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-08-27">১৯–২৭ আগস্ট, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-12-24">১৭–২৪ ডিসে, ২০২৬</td>
+                        </tr>
+                        <!-- Row 8: Grade Submission -->
+                        <tr>
+                            <td>📊 Grade Submission</td>
+                            <td class="col-spring" data-date="2026-05-05">০৫ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-08-30">৩০ আগস্ট, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-12-28">২৮ ডিসে, ২০২৬</td>
+                        </tr>
+                        <!-- Row 9: Result Publication -->
+                        <tr>
+                            <td>📢 Result Publication</td>
+                            <td class="col-spring" data-date="2026-05-06">০৬ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-08-31">৩১ আগস্ট, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-12-29">২৯ ডিসে, ২০২৬</td>
+                        </tr>
+                        <!-- Row 10: Semester Break -->
+                        <tr>
+                            <td>⏳ Semester Break</td>
+                            <td class="col-spring" data-date="2026-05-08">০৬–০৮ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-09-02">৩১ আগ–০২ সেপ, ২০২৬</td>
+                            <td class="col-fall" data-date="2026-12-31">২৯–৩১ ডিসে, ২০২৬</td>
+                        </tr>
+                        <!-- Row 11: Advising Next -->
+                        <tr>
+                            <td>📋 Advising (Next Sem)</td>
+                            <td class="col-spring" data-date="2026-05-15">০৯–১৫ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-09-10">০৩–১০ সেপ, ২০২৬</td>
+                            <td class="col-fall" data-date="2027-01-09">০১–০৯ জানু, ২০২৭</td>
+                        </tr>
+                        <!-- Row 12: Classes Start Next -->
+                        <tr>
+                            <td>📘 Classes Start (Next)</td>
+                            <td class="col-spring" data-date="2026-05-12">১২ মে, ২০২৬</td>
+                            <td class="col-summer" data-date="2026-09-09">০৯ সেপ, ২০২৬</td>
+                            <td class="col-fall" data-date="2027-01-10">১০ জানু, ২০২৭</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== ROUTINE PANEL (Midterm) ===== -->
+        <div class="routine-panel" id="routinePanel">
+            <div class="panel-header">
+                <h3>📝 Midterm Exam Routine</h3>
+                <button class="close-btn" onclick="toggleRoutine()">✕ বন্ধ করুন</button>
+            </div>
+            <div class="meta-badge">🏷️ Batch: 48 &nbsp;|&nbsp; Section: H</div>
+
+            <table class="routine-table" id="routineTable">
+                <thead>
+                    <tr>
+                        <th>তারিখ</th>
+                        <th>বিষয়</th>
+                        <th>সময়</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="exam1" data-exam-date="2026-06-27" data-exam-time="11:30:00">
+                        <td>২৭-০৬-২০২৬</td>
+                        <td>English</td>
+                        <td>
+                            ১১:৩০ AM – ১:০০ PM
+                            <span class="countdown-chip" id="cd1">⏳</span>
+                        </td>
+                    </tr>
+                    <tr id="exam2" data-exam-date="2026-06-29" data-exam-time="11:30:00">
+                        <td>২৯-০৬-২০২৬</td>
+                        <td>Computer Fundamental</td>
+                        <td>
+                            ১১:৩০ AM – ১:০০ PM
+                            <span class="countdown-chip" id="cd2">⏳</span>
+                        </td>
+                    </tr>
+                    <tr id="exam3" data-exam-date="2026-07-01" data-exam-time="09:00:00">
+                        <td>০১-০৭-২০২৬</td>
+                        <td>Intro to Software Engineering</td>
+                        <td>
+                            ০৯:০০ AM – ১০:৩০ AM
+                            <span class="countdown-chip" id="cd3">⏳</span>
+                        </td>
+                    </tr>
+                    <tr id="exam4" data-exam-date="2026-07-04" data-exam-time="11:30:00">
+                        <td>০৪-০৭-২০২৬</td>
+                        <td>Bangladesh Studies</td>
+                        <td>
+                            ১১:৩০ AM – ১:০০ PM
+                            <span class="countdown-chip" id="cd4">⏳</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align:center; font-weight:700; color:var(--secondary); margin-top:18px; font-size:15px;">
+                ☘️ শুভকামনা তোমার মিডটার্মের জন্য! ☘️
+            </p>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-note">
+            <span class="note-item">
+                <span class="icon">🕌</span>
+                <span>* নির্ভর করে চাঁদ দেখা ও সরকারি ঘোষণার উপর</span>
+            </span>
+            <span class="note-item">
+                <span class="icon">📌</span>
+                <span>সূচি পরিবর্তন সাপেক্ষে</span>
+            </span>
+            <span class="note-item">
+                <span class="icon">💡</span>
+                <span>সফলতার জন্য প্রস্তুত থাকুন</span>
+            </span>
+        </div>
+
+    </div>
+
+    <script>
+        // ===== TOGGLE ROUTINE =====
+        function toggleRoutine() {
+            const panel = document.getElementById('routinePanel');
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // ===== LIVE CLOCK =====
+        function updateClock() {
+            const now = new Date();
+            const opts = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            document.getElementById('clockText').textContent =
+                now.toLocaleDateString('bn-BD', opts);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // ===== BANGLA NUMERAL HELPER =====
+        function toBanglaNum(n) {
+            return n.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+        }
+
+        // ===== CALENDAR LOGIC =====
+        function runLogic() {
+            const now = new Date();
+
+            // 1) Main table: mark past events
+            document.querySelectorAll('.calendar-table td[data-date]').forEach(td => {
+                const d = new Date(td.getAttribute('data-date') + 'T23:59:59');
+                if (now > d) {
+                    td.classList.add('past');
+                }
+            });
+
+            // 2) Midterm main cell (overall end)
+            const midEnd = new Date('2026-07-04T23:59:59');
+            const midCell = document.getElementById('midExamCell');
+            if (now > midEnd) {
+                midCell.classList.add('past');
+            }
+
+            // 3) Routine countdowns
+            for (let i = 1; i <= 4; i++) {
+                const row = document.getElementById('exam' + i);
+                const chip = document.getElementById('cd' + i);
+                if (!row || !chip) continue;
+
+                const dateStr = row.getAttribute('data-exam-date');
+                const timeStr = row.getAttribute('data-exam-time');
+                const examStart = new Date(dateStr + 'T' + timeStr);
+                const examEnd = new Date(dateStr + 'T23:59:59');
+
+                // remove any past class
+                row.classList.remove('exam-past');
+
+                if (now > examEnd) {
+                    row.classList.add('exam-past');
+                    chip.textContent = '✅ শেষ';
+                    chip.className = 'countdown-chip done';
+                } else if (now >= examStart && now <= examEnd) {
+                    chip.textContent = '📝 চলছে!';
+                    chip.className = 'countdown-chip live';
+                } else {
+                    const diff = examStart - now;
+                    if (diff > 0) {
+                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                        chip.textContent = '⏳ বাকি ' + toBanglaNum(days) + 'd ' + toBanglaNum(hours) + 'h ' +
+                            toBanglaNum(mins) + 'm';
+                        chip.className = 'countdown-chip';
+                    }
+                }
+            }
+        }
+
+        // Run every 30 seconds
+        runLogic();
+        setInterval(runLogic, 30000);
+
+        // Also run on DOM ready
+        document.addEventListener('DOMContentLoaded', runLogic);
+    </script>
+
+</body>
+</html>
