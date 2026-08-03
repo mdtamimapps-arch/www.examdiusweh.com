@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-    <title>DIU Academic Calendar 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <title>DIU Academic Calendar 2026 - Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Hind+Siliguri:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        /* ===== CSS Variables & Reset ===== */
+        /* ===== CSS Variables & Reset (Premium Dark RGB Theme) ===== */
         :root {
-            --primary: #0a4b6e;
-            --primary-light: #1a7aa8;
-            --primary-dark: #06324b;
-            --secondary: #00a86b;
-            --secondary-light: #34c98e;
-            --accent: #f39c12;
-            --bg-body: #f2f6fc;
-            --bg-card: #ffffff;
-            --text-primary: #1a2a3a;
-            --text-secondary: #4a5a6a;
+            --primary: #00f3ff;
+            --primary-light: #39ff14;
+            --primary-dark: #050510;
+            --secondary: #ff0055;
+            --accent: #ffd700;
+            --bg-body: #050510;
+            --bg-card: rgba(12, 12, 28, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #aab4c0;
             --text-light: #7a8a9a;
-            --shadow-sm: 0 2px 8px rgba(10, 75, 110, 0.08);
-            --shadow-md: 0 8px 32px rgba(10, 75, 110, 0.12);
-            --shadow-lg: 0 16px 56px rgba(10, 75, 110, 0.16);
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 32px rgba(0, 243, 255, 0.1);
+            --shadow-lg: 0 16px 56px rgba(0, 0, 0, 0.5);
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --font: 'Hind Siliguri', 'Segoe UI', sans-serif;
+            --font-tech: 'Orbitron', sans-serif;
         }
 
         *,
@@ -45,20 +45,34 @@
             min-height: 100vh;
             line-height: 1.6;
             transition: background 0.3s;
+            overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+        /* 🔮 RGB Background Lights */
+        .rgb-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; pointer-events: none;
         }
-        ::-webkit-scrollbar-track {
-            background: #e9edf2;
-            border-radius: 8px;
+        .light {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            animation: floatLight 12s ease-in-out infinite alternate;
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-light);
-            border-radius: 8px;
+        .light:nth-child(1) { width: 300px; height: 300px; background: var(--secondary); top: -10%; left: -10%; }
+        .light:nth-child(2) { width: 400px; height: 400px; background: var(--primary); bottom: -20%; right: -10%; animation-duration: 15s; }
+        .light:nth-child(3) { width: 250px; height: 250px; background: var(--primary-light); top: 40%; left: 60%; animation-duration: 10s; }
+        .light:nth-child(4) { width: 350px; height: 350px; background: var(--accent); top: 70%; left: -5%; animation-duration: 18s; }
+        @keyframes floatLight {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, -80px) scale(1.3); }
         }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #111; border-radius: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 8px; }
 
         .app {
             max-width: 1280px;
@@ -66,6 +80,8 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            position: relative;
+            z-index: 10;
         }
 
         /* ===== Mode Toggle ===== */
@@ -81,14 +97,13 @@
         .mode-toggle {
             display: flex;
             background: var(--bg-card);
+            backdrop-filter: blur(12px);
             border-radius: 50px;
             padding: 4px;
             box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             pointer-events: auto;
             gap: 4px;
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.92);
         }
         .mode-toggle button {
             border: none;
@@ -105,18 +120,10 @@
             gap: 6px;
             font-family: var(--font);
         }
-        .mode-toggle button .icon {
-            font-size: 18px;
-            line-height: 1;
-        }
         .mode-toggle button.active {
             background: var(--primary);
-            color: #fff;
-            box-shadow: 0 2px 12px rgba(10, 75, 110, 0.3);
-        }
-        .mode-toggle button.android-btn.active {
-            background: #0f9d58;
-            box-shadow: 0 2px 12px rgba(15, 157, 88, 0.3);
+            color: #000;
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
         }
 
         /* ===== Topbar ===== */
@@ -126,216 +133,135 @@
             align-items: center;
             justify-content: space-between;
             background: var(--bg-card);
+            backdrop-filter: blur(12px);
             padding: 14px 22px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
-            border-left: 5px solid var(--secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 5px solid var(--primary);
             transition: var(--transition);
         }
-        .topbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .topbar-brand { display: flex; align-items: center; gap: 12px; }
         .topbar-brand .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 800;
-            font-size: 18px;
-            letter-spacing: -0.5px;
-            box-shadow: 0 4px 10px rgba(10, 75, 110, 0.25);
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 800; font-size: 18px;
+            font-family: var(--font-tech);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
         }
         .topbar-brand h1 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
+            font-size: 18px; font-weight: 700; color: var(--text-primary); line-height: 1.2;
         }
         .topbar-brand h1 span {
-            font-weight: 300;
-            color: var(--text-light);
-            font-size: 13px;
-            display: block;
+            font-weight: 300; color: var(--text-light); font-size: 13px; display: block;
         }
         .topbar-clock {
-            background: var(--primary);
-            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--primary);
             padding: 8px 20px;
             border-radius: 50px;
             font-size: 15px;
             font-weight: 600;
-            letter-spacing: 0.3px;
-            box-shadow: 0 4px 12px rgba(10, 75, 110, 0.3);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
             white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
+            display: flex; align-items: center; gap: 8px;
         }
         .topbar-clock .dot {
-            width: 10px;
-            height: 10px;
-            background: #4ade80;
+            width: 10px; height: 10px;
+            background: var(--primary-light);
             border-radius: 50%;
-            display: inline-block;
             animation: pulse-dot 1.5s infinite;
+            box-shadow: 0 0 8px var(--primary-light);
         }
-        @keyframes pulse-dot {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.4;
-                transform: scale(0.85);
-            }
-        }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* ===== Bismillah ===== */
+        /* ===== Bismillah & Hero ===== */
         .bismillah-wrap {
             text-align: center;
             background: var(--bg-card);
+            backdrop-filter: blur(12px);
             padding: 12px 16px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
             font-size: 22px;
             font-weight: 700;
-            color: var(--secondary);
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid rgba(0, 168, 107, 0.2);
-            transition: var(--transition);
+            color: var(--primary-light);
+            border: 1px solid rgba(57, 255, 20, 0.2);
         }
-
-        /* ===== Hero ===== */
         .hero {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.1), rgba(0, 243, 255, 0.1));
+            backdrop-filter: blur(12px);
             padding: 28px 32px;
             border-radius: var(--radius-lg);
             color: #fff;
             box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
-            transition: var(--transition);
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .hero h2 {
             font-size: clamp(22px, 4vw, 34px);
             font-weight: 800;
-            position: relative;
-            z-index: 1;
-            letter-spacing: -0.3px;
+            background: linear-gradient(90deg, #ff0055, #00f3ff, #39ff14, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s ease infinite;
+            background-size: 300% 300%;
         }
-        .hero p {
-            font-size: clamp(14px, 1.8vw, 17px);
-            opacity: 0.85;
-            margin-top: 4px;
-            position: relative;
-            z-index: 1;
-            font-weight: 400;
-        }
+        .hero p { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
         .hero .badge {
-            display: inline-block;
-            margin-top: 12px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
+            display: inline-block; margin-top: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 18px; border-radius: 50px;
+            font-size: 14px; font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            z-index: 1;
         }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        /* ===== Semester Tabs (clickable) ===== */
+        /* ===== Semester Tabs ===== */
         .semester-tabs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            margin-top: 4px;
-            transition: var(--transition);
         }
         .semester-tab {
             background: var(--bg-card);
+            backdrop-filter: blur(8px);
             padding: 14px 10px;
             border-radius: var(--radius-sm);
             text-align: center;
             font-weight: 700;
             font-size: 15px;
             color: var(--text-secondary);
-            box-shadow: var(--shadow-sm);
             cursor: pointer;
-            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 4px solid transparent;
-            user-select: none;
+            transition: var(--transition);
         }
-        .semester-tab:hover {
-            background: #f0f4fa;
-        }
+        .semester-tab:hover { background: rgba(255, 255, 255, 0.05); }
         .semester-tab.active {
-            border-bottom-color: var(--secondary);
+            border-bottom-color: var(--primary);
             color: var(--primary);
-            background: #f0faf5;
+            background: rgba(0, 243, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 243, 255, 0.1);
         }
-        .semester-tab.summer {
-            border-bottom-color: var(--accent);
-            background: #fffbf0;
-            color: #b9770e;
-        }
-        .semester-tab.summer.active {
-            background: #fef3c7;
-            border-bottom-color: #d97706;
-            color: #92400e;
-        }
-        .semester-tab .emoji {
-            display: block;
-            font-size: 24px;
-            margin-bottom: 2px;
-        }
+        .semester-tab.summer { border-bottom-color: var(--accent); color: var(--accent); }
+        .semester-tab.summer.active { background: rgba(255, 215, 0, 0.05); }
+        .semester-tab .emoji { display: block; font-size: 24px; margin-bottom: 2px; }
 
         /* ===== Table Card ===== */
         .table-card {
             background: var(--bg-card);
+            backdrop-filter: blur(12px);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .table-scroll {
-            overflow-x: auto;
-            padding: 4px 0;
-            -webkit-overflow-scrolling: touch;
-        }
+        .table-scroll { overflow-x: auto; padding: 4px 0; }
         .calendar-table {
             width: 100%;
             border-collapse: collapse;
@@ -343,601 +269,244 @@
             min-width: 680px;
         }
         .calendar-table thead th {
-            background: var(--primary);
-            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--primary);
             padding: 14px 16px;
             text-align: center;
             font-weight: 700;
             font-size: 14px;
-            letter-spacing: 0.4px;
             text-transform: uppercase;
-            position: sticky;
-            top: 0;
-            z-index: 5;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        .calendar-table thead th:first-child {
-            text-align: left;
-            border-radius: 0;
+            border-bottom: 2px solid var(--primary);
         }
         .calendar-table thead th.summer-head {
-            background: #d97706;
-            position: relative;
-        }
-        .calendar-table thead th.summer-head::after {
-            content: '🔥';
-            margin-left: 6px;
-            font-size: 16px;
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
         .calendar-table tbody td {
             padding: 13px 16px;
-            border-bottom: 1px solid #edf2f7;
-            vertical-align: middle;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
-            transition: background 0.2s, opacity 0.3s, visibility 0.3s;
         }
         .calendar-table tbody td:first-child {
             font-weight: 600;
-            color: var(--primary-dark);
-            background: #f8faff;
-            border-right: 2px solid #e8edf4;
+            color: var(--primary-light);
+            background: rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 13px;
-        }
-        .calendar-table tbody td.col-spring {
-            background: #fafcff;
         }
         .calendar-table tbody td.col-summer {
-            background: #fffbee;
-            border-left: 3px solid #f59e0b;
-            border-right: 3px solid #f59e0b;
-        }
-        .calendar-table tbody td.col-fall {
-            background: #fafcff;
+            background: rgba(255, 215, 0, 0.03);
+            border-left: 1px solid rgba(255, 215, 0, 0.2);
+            border-right: 1px solid rgba(255, 215, 0, 0.2);
         }
         .calendar-table tbody td.past {
-            color: #aab4c0 !important;
+            color: #555 !important;
             text-decoration: line-through;
-            text-decoration-color: #ef4444;
-            text-decoration-thickness: 2px;
-            opacity: 0.6;
-            background: #f8fafc !important;
+            text-decoration-color: #ff3333;
+            opacity: 0.5;
         }
 
-        /* clickable routine cell */
+        /* Clickable Routine Cell */
         .routine-trigger {
-            background: #fff0e0 !important;
-            border: 2px dashed #e67e22 !important;
             cursor: pointer;
             font-weight: 700;
-            color: #b85e0a !important;
-            transition: var(--transition);
+            color: var(--accent) !important;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-decoration-color: var(--accent);
             position: relative;
-            padding-right: 36px !important;
         }
-        .routine-trigger:hover {
-            background: #ffe8d0 !important;
-            transform: scale(1.01);
-            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.2);
-        }
-        .routine-trigger .tap-hint {
-            display: block;
-            font-size: 11px;
-            font-weight: 400;
-            color: #b85e0a;
-            margin-top: 3px;
-            opacity: 0.8;
-        }
-        .routine-trigger .tap-icon {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-        }
+        .routine-trigger:hover { color: #fff !important; text-shadow: 0 0 8px var(--accent); }
+        .routine-trigger .tap-hint { display: block; font-size: 10px; font-weight: 400; color: var(--text-light); margin-top: 3px; }
 
-        /* ===== Routine Panel ===== */
+        /* ===== Routine Panel (Modal-like) ===== */
         .routine-panel {
             display: none;
-            margin-top: 0;
-            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
-            border-radius: var(--radius-md);
+            margin-top: 10px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius-lg);
             padding: 24px 28px;
-            border: 2px solid var(--secondary);
-            box-shadow: 0 8px 30px rgba(0, 168, 107, 0.15);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
             animation: slideUp 0.4s ease-out;
-            transition: var(--transition);
         }
-        .routine-panel.open {
-            display: block;
+        .routine-panel.open { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .panel-header {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;
         }
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .panel-header h3 {
+            font-size: 20px; color: #fff; font-weight: 700;
+            font-family: var(--font-tech);
         }
-        .routine-panel .panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px;
+        .panel-header .close-btn {
+            background: rgba(255, 0, 85, 0.2);
+            border: 1px solid var(--secondary);
+            padding: 6px 16px; border-radius: 50px;
+            font-weight: 600; font-size: 14px; cursor: pointer;
+            color: var(--secondary); transition: var(--transition);
         }
-        .routine-panel .panel-header h3 {
-            font-size: 20px;
-            color: var(--primary-dark);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .panel-header .close-btn:hover { background: var(--secondary); color: #fff; }
+
+        /* ⏳ Countdown Box (Dynamic RGB) */
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 24px;
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.2);
+            transition: border-color 1s ease, box-shadow 1s ease;
         }
-        .routine-panel .panel-header .close-btn {
-            background: #eef2f6;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: var(--transition);
+        .countdown-label { color: #bbb; font-size: 0.9rem; margin-bottom: 15px; }
+        .countdown-timer { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .time-unit {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 12px; border-radius: 14px;
+            min-width: 65px; border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .routine-panel .panel-header .close-btn:hover {
-            background: #e2e8f0;
+        .time-unit span {
+            display: block; font-family: var(--font-tech);
+            font-size: 2rem; font-weight: 700; color: #fff;
+            text-shadow: 0 0 15px var(--primary);
+            line-height: 1.2;
         }
-        .routine-panel .meta-badge {
-            display: inline-block;
-            background: var(--secondary);
-            color: #fff;
-            padding: 4px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 14px;
+        .time-unit small { color: #888; font-size: 0.7rem; text-transform: uppercase; }
+        .next-exam-name {
+            margin-top: 15px; color: #fff; font-size: 1rem;
+            background: rgba(255,255,255,0.08); padding: 8px 16px;
+            border-radius: 30px; display: inline-block;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .routine-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            background: #fff;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+        /* 📋 Exam Cards List */
+        .exam-list { display: flex; flex-direction: column; gap: 15px; }
+        .exam-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 18px; padding: 18px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-left: 6px solid var(--card-color);
+            transition: all 0.5s ease; position: relative; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        .routine-table th {
-            background: var(--secondary);
-            color: #fff;
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
+        .exam-card:active { transform: scale(0.98); }
+        .exam-card.completed {
+            opacity: 0.5; filter: grayscale(0.8);
+            border-left-color: #444 !important; order: 99;
         }
-        .routine-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid #e8f5ef;
+        .exam-card.completed .exam-title, .exam-card.completed .exam-code, .exam-card.completed .exam-date {
+            text-decoration: line-through; text-decoration-color: #ff3333; text-decoration-thickness: 2px;
         }
-        .routine-table tr:last-child td {
-            border-bottom: none;
+        .exam-card.completed .kata-badge { display: inline-block; }
+        .kata-badge {
+            display: none; background: #ff0033; color: #fff;
+            font-weight: 700; font-size: 0.7rem; padding: 3px 10px;
+            border-radius: 20px; margin-left: 8px; vertical-align: middle;
         }
-        .routine-table td:first-child {
-            font-weight: 600;
-            color: var(--primary-dark);
-            background: #f8fdfa;
+        .exam-info { display: flex; flex-direction: column; gap: 4px; }
+        .exam-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+        .exam-code { font-family: var(--font-tech); font-size: 0.75rem; color: #8899aa; }
+        .exam-date {
+            font-size: 0.85rem; color: #bbc; margin-top: 4px;
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
         }
-        .routine-table .exam-past td {
-            color: #aab4c0 !important;
-            text-decoration: line-through;
-            text-decoration-color: #ef4444;
-            opacity: 0.6;
-            background: #f8fafc !important;
+        .exam-date i {
+            font-style: normal; background: rgba(255,255,255,0.1);
+            padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;
         }
-        .countdown-chip {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 3px 12px;
-            border-radius: 50px;
-            background: #fef3c7;
-            color: #92400e;
-            border-left: 3px solid #f59e0b;
-            margin-left: 8px;
+        .status-badge {
+            font-size: 0.7rem; padding: 4px 10px; border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--card-color); border: 1px solid var(--card-color);
+            text-transform: uppercase; font-weight: 600;
+            display: inline-block; margin-top: 8px; width: fit-content;
         }
-        .countdown-chip.live {
-            background: #fecaca;
-            color: #991b1b;
-            border-left-color: #dc2626;
-        }
-        .countdown-chip.done {
-            background: #e5e7eb;
-            color: #6b7280;
-            border-left-color: #9ca3af;
-            text-decoration: none;
+        .exam-card.completed .status-badge {
+            background: rgba(255, 0, 51, 0.2); color: #ff5566; border-color: #ff5566;
         }
 
         /* ===== Footer ===== */
         .footer-note {
             background: var(--bg-card);
+            backdrop-filter: blur(12px);
             padding: 18px 24px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
             font-size: 14px;
             color: var(--text-secondary);
-            border-top: 3px solid var(--secondary-light);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            transition: var(--transition);
-        }
-        .footer-note .note-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .footer-note .note-item .icon {
-            font-size: 18px;
+            border-top: 3px solid var(--secondary);
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
         }
 
         /* ===== Android Mode Overrides ===== */
-        body.android-mode {
-            padding: 10px 8px;
-            background: #eef2f7;
-        }
-        body.android-mode .app {
-            gap: 14px;
-        }
-        body.android-mode .topbar {
-            padding: 12px 14px;
-            border-left-width: 4px;
-            flex-direction: column;
-            align-items: stretch;
-            gap: 10px;
-            border-radius: var(--radius-sm);
-        }
-        body.android-mode .topbar-brand h1 {
-            font-size: 15px;
-        }
-        body.android-mode .topbar-brand h1 span {
-            font-size: 11px;
-        }
-        body.android-mode .topbar-brand .logo-icon {
-            width: 36px;
-            height: 36px;
-            font-size: 15px;
-        }
-        body.android-mode .topbar-clock {
-            font-size: 13px;
-            padding: 6px 14px;
-            justify-content: center;
-            border-radius: 30px;
-        }
-        body.android-mode .bismillah-wrap {
-            font-size: 18px;
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-        }
-        body.android-mode .hero {
-            padding: 18px 16px;
-            border-radius: var(--radius-md);
-        }
-        body.android-mode .hero h2 {
-            font-size: 20px;
-        }
-        body.android-mode .hero p {
-            font-size: 13px;
-        }
-        body.android-mode .hero .badge {
-            font-size: 12px;
-            padding: 4px 14px;
-            margin-top: 8px;
-        }
-        body.android-mode .semester-tabs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 2px 0 6px 0;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-        }
-        body.android-mode .semester-tabs .semester-tab {
-            flex: 0 0 auto;
-            min-width: 100px;
-            padding: 10px 14px;
-            font-size: 13px;
-            border-radius: 50px;
-            border-bottom: none;
-            scroll-snap-align: start;
-            box-shadow: var(--shadow-sm);
-            background: var(--bg-card);
-        }
-        body.android-mode .semester-tabs .semester-tab.active {
-            background: var(--primary);
-            color: #fff;
-            border-bottom: none;
-        }
-        body.android-mode .semester-tabs .semester-tab.summer {
-            background: #fef3c7;
-            color: #b9770e;
-            border-bottom: none;
-        }
-        body.android-mode .semester-tabs .semester-tab.summer.active {
-            background: #d97706;
-            color: #fff;
-        }
-        body.android-mode .semester-tabs .semester-tab .emoji {
-            display: inline;
-            font-size: 18px;
-            margin-right: 6px;
-        }
-        body.android-mode .table-card {
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-sm);
-            border: none;
-            background: transparent;
-        }
-        body.android-mode .table-scroll {
-            overflow: visible;
-            padding: 0;
-        }
-        body.android-mode .calendar-table {
-            min-width: unset;
-            display: block;
-            border: none;
-            background: transparent;
-        }
-        body.android-mode .calendar-table thead {
-            display: none;
-        }
-        body.android-mode .calendar-table tbody {
-            display: block;
-        }
+        body.android-mode { padding: 10px 8px; }
+        body.android-mode .topbar { padding: 12px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
+        body.android-mode .topbar-brand h1 { font-size: 15px; }
+        body.android-mode .topbar-brand h1 span { font-size: 11px; }
+        body.android-mode .topbar-clock { font-size: 13px; padding: 6px 14px; justify-content: center; }
+        body.android-mode .bismillah-wrap { font-size: 18px; padding: 10px 12px; }
+        body.android-mode .hero { padding: 18px 16px; }
+        body.android-mode .hero h2 { font-size: 20px; }
+        
+        body.android-mode .semester-tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 6px 0; }
+        body.android-mode .semester-tabs .semester-tab { flex: 0 0 auto; min-width: 100px; padding: 10px 14px; font-size: 13px; border-radius: 50px; border-bottom: none; }
+        body.android-mode .semester-tabs .semester-tab.active { background: var(--primary); color: #000; }
+        body.android-mode .semester-tabs .semester-tab.summer.active { background: var(--accent); color: #000; }
+        
+        body.android-mode .table-card { background: transparent; border: none; box-shadow: none; }
+        body.android-mode .table-scroll { overflow: visible; padding: 0; }
+        body.android-mode .calendar-table { min-width: unset; display: block; border: none; background: transparent; }
+        body.android-mode .calendar-table thead { display: none; }
+        body.android-mode .calendar-table tbody { display: block; }
         body.android-mode .calendar-table tr {
-            display: block;
-            background: var(--bg-card);
-            border-radius: var(--radius-sm);
-            padding: 14px 16px;
-            margin-bottom: 10px;
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--primary-light);
-            transition: var(--transition);
-            position: relative;
-        }
-        body.android-mode .calendar-table tr:last-child {
-            margin-bottom: 0;
+            display: block; background: var(--bg-card); backdrop-filter: blur(8px);
+            border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--primary);
         }
         body.android-mode .calendar-table td {
-            display: inline-block;
-            padding: 4px 8px;
-            border: none !important;
-            margin: 2px 4px 2px 0;
-            border-radius: 6px;
-            font-size: 12px;
-            background: #f0f4f8;
-            color: var(--text-primary);
-            vertical-align: middle;
-            transition: opacity 0.3s, visibility 0.3s;
+            display: block; padding: 4px 8px; border: none !important;
+            font-size: 12px; background: transparent !important; color: var(--text-primary);
         }
         body.android-mode .calendar-table td:first-child {
-            display: block;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            background: none !important;
-            padding: 0 0 8px 0;
-            margin: 0 0 6px 0;
-            border: none !important;
-            width: 100%;
-            border-bottom: 2px solid #e8edf4;
+            font-size: 15px; font-weight: 700; color: var(--primary-light);
+            padding: 0 0 8px 0; margin: 0 0 6px 0;
+            border-bottom: 2px solid rgba(255,255,255,0.1) !important; width: 100%;
         }
-        body.android-mode .calendar-table td.col-spring {
-            background: #e8f0fe;
-            border: none !important;
-        }
-        body.android-mode .calendar-table td.col-summer {
-            background: #fef3c7;
-            border: none !important;
-            border-left: 3px solid #f59e0b;
-        }
-        body.android-mode .calendar-table td.col-fall {
-            background: #e8f0fe;
-            border: none !important;
-        }
-        body.android-mode .calendar-table td.past {
-            color: #aab4c0 !important;
-            text-decoration: line-through;
-            text-decoration-color: #ef4444;
-            opacity: 0.5;
-            background: #f1f5f9 !important;
-        }
-        body.android-mode .routine-trigger {
-            background: #fff0e0 !important;
-            border: 2px dashed #e67e22 !important;
-            padding: 6px 12px !important;
-            border-radius: 8px !important;
-            display: inline-block !important;
-            cursor: pointer;
-            font-weight: 700;
-            color: #b85e0a !important;
-            margin-top: 4px !important;
-        }
-        body.android-mode .routine-trigger .tap-hint {
-            font-size: 10px;
-        }
-        body.android-mode .routine-trigger .tap-icon {
-            display: none;
-        }
-        body.android-mode .routine-panel {
-            padding: 16px 14px;
-            border-radius: var(--radius-sm);
-            margin-top: 4px;
-        }
-        body.android-mode .routine-panel .panel-header h3 {
-            font-size: 17px;
-        }
-        body.android-mode .routine-panel .panel-header .close-btn {
-            font-size: 12px;
-            padding: 4px 12px;
-        }
-        body.android-mode .routine-table {
-            font-size: 12px;
-        }
-        body.android-mode .routine-table th,
-        body.android-mode .routine-table td {
-            padding: 8px 10px;
-        }
-        body.android-mode .countdown-chip {
-            font-size: 10px;
-            padding: 2px 8px;
-            margin-left: 4px;
-            display: inline-block;
-            margin-top: 2px;
-        }
-        body.android-mode .footer-note {
-            padding: 14px 16px;
-            font-size: 12px;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border-radius: var(--radius-sm);
-            gap: 6px;
-        }
-        body.android-mode .footer-note .note-item {
-            font-size: 12px;
-        }
+        body.android-mode .calendar-table td.col-summer { border-left: 3px solid var(--accent) !important; }
+        body.android-mode .calendar-table td.past { opacity: 0.4; }
+        
+        body.android-mode .routine-trigger { padding: 6px 0; display: block; }
+        
+        body.android-mode .routine-panel { padding: 16px 14px; }
+        body.android-mode .time-unit { min-width: 55px; padding: 8px; }
+        body.android-mode .time-unit span { font-size: 1.6rem; }
+        body.android-mode .exam-card { flex-direction: row; align-items: center; padding: 15px; }
+        body.android-mode .exam-title { font-size: 1rem; }
+        body.android-mode .footer-note { flex-direction: column; align-items: center; text-align: center; padding: 14px 16px; }
 
-        /* ===== Responsive (Desktop fine-tune) ===== */
+        /* ===== Desktop Responsive ===== */
         @media (max-width: 768px) {
-            body:not(.android-mode) .topbar {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-                padding: 14px 16px;
-            }
-            body:not(.android-mode) .topbar-brand h1 {
-                font-size: 16px;
-            }
-            body:not(.android-mode) .topbar-brand h1 span {
-                font-size: 12px;
-            }
-            body:not(.android-mode) .topbar-clock {
-                font-size: 13px;
-                padding: 6px 14px;
-                justify-content: center;
-            }
-            body:not(.android-mode) .hero {
-                padding: 20px 18px;
-            }
-            body:not(.android-mode) .semester-tabs {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 6px;
-            }
-            body:not(.android-mode) .semester-tab {
-                font-size: 12px;
-                padding: 10px 6px;
-            }
-            body:not(.android-mode) .semester-tab .emoji {
-                font-size: 18px;
-            }
-            body:not(.android-mode) .calendar-table {
-                font-size: 12px;
-                min-width: 520px;
-            }
-            body:not(.android-mode) .calendar-table thead th {
-                padding: 10px 10px;
-                font-size: 11px;
-            }
-            body:not(.android-mode) .calendar-table tbody td {
-                padding: 10px 10px;
-                font-size: 12px;
-            }
-            body:not(.android-mode) .calendar-table tbody td:first-child {
-                font-size: 11px;
-                padding: 10px 8px;
-            }
-            body:not(.android-mode) .routine-trigger .tap-hint {
-                font-size: 9px;
-            }
-            body:not(.android-mode) .routine-panel {
-                padding: 16px 14px;
-            }
-            body:not(.android-mode) .routine-panel .panel-header h3 {
-                font-size: 17px;
-            }
-            body:not(.android-mode) .routine-table {
-                font-size: 12px;
-            }
-            body:not(.android-mode) .routine-table th,
-            body:not(.android-mode) .routine-table td {
-                padding: 8px 10px;
-            }
-            body:not(.android-mode) .countdown-chip {
-                font-size: 10px;
-                padding: 2px 8px;
-                margin-left: 4px;
-            }
-            body:not(.android-mode) .footer-note {
-                font-size: 12px;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 14px 16px;
-            }
-            .bismillah-wrap {
-                font-size: 18px;
-                padding: 10px 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body:not(.android-mode) .topbar-brand .logo-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 15px;
-            }
-            body:not(.android-mode) .topbar-brand h1 {
-                font-size: 14px;
-            }
-            body:not(.android-mode) .hero h2 {
-                font-size: 20px;
-            }
-            body:not(.android-mode) .hero .badge {
-                font-size: 12px;
-                padding: 4px 14px;
-            }
-            body:not(.android-mode) .calendar-table {
-                min-width: 440px;
-                font-size: 11px;
-            }
-            body:not(.android-mode) .calendar-table thead th {
-                padding: 8px 6px;
-                font-size: 10px;
-            }
-            body:not(.android-mode) .calendar-table tbody td {
-                padding: 8px 6px;
-                font-size: 11px;
-            }
-            body:not(.android-mode) .calendar-table tbody td:first-child {
-                font-size: 10px;
-                padding: 8px 5px;
-            }
-            body:not(.android-mode) .routine-trigger {
-                padding-right: 28px !important;
-            }
-            body:not(.android-mode) .routine-trigger .tap-icon {
-                right: 6px;
-                font-size: 14px;
-            }
+            body:not(.android-mode) .topbar { flex-direction: column; align-items: stretch; gap: 10px; }
+            body:not(.android-mode) .topbar-brand h1 { font-size: 16px; }
+            body:not(.android-mode) .hero { padding: 20px 18px; }
+            body:not(.android-mode) .calendar-table { font-size: 12px; min-width: 520px; }
         }
     </style>
 </head>
 <body>
+    <!-- 🔮 RGB Background -->
+    <div class="rgb-bg">
+        <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    </div>
+
     <div class="app">
 
-        <!-- ===== Mode Toggle ===== -->
+        <!-- Mode Toggle -->
         <div class="mode-toggle-wrap">
             <div class="mode-toggle" id="modeToggle">
                 <button class="android-btn" id="androidModeBtn" onclick="setMode('android')">
@@ -949,7 +518,7 @@
             </div>
         </div>
 
-        <!-- ===== Topbar ===== -->
+        <!-- Topbar -->
         <header class="topbar">
             <div class="topbar-brand">
                 <div class="logo-icon">DIU</div>
@@ -964,33 +533,25 @@
             </div>
         </header>
 
-        <!-- ===== Bismillah ===== -->
+        <!-- Bismillah -->
         <div class="bismillah-wrap">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
 
-        <!-- ===== Hero ===== -->
+        <!-- Hero -->
         <div class="hero">
             <h2>📅 Tri-Semester Academic Calendar – 2026</h2>
             <p>Daffodil Smart City (DSC), Birulia, Savar, Dhaka-1216, Bangladesh</p>
             <div class="badge">🎯 Stay Organized &amp; Succeed</div>
         </div>
 
-        <!-- ===== Semester Tabs ===== -->
+        <!-- Semester Tabs -->
         <div class="semester-tabs" id="semesterTabs">
-            <div class="semester-tab active" data-semester="all" id="tabAll">
-                <span class="emoji">📅</span> সব
-            </div>
-            <div class="semester-tab" data-semester="spring" id="tabSpring">
-                <span class="emoji">🌱</span> Spring
-            </div>
-            <div class="semester-tab summer" data-semester="summer" id="tabSummer">
-                <span class="emoji">☀️</span> Summer
-            </div>
-            <div class="semester-tab" data-semester="fall" id="tabFall">
-                <span class="emoji">🍂</span> Fall
-            </div>
+            <div class="semester-tab active" data-semester="all"><span class="emoji">📅</span> সব</div>
+            <div class="semester-tab" data-semester="spring"><span class="emoji">🌱</span> Spring</div>
+            <div class="semester-tab summer" data-semester="summer"><span class="emoji">☀️</span> Summer</div>
+            <div class="semester-tab" data-semester="fall"><span class="emoji">🍂</span> Fall</div>
         </div>
 
-        <!-- ===== Table ===== -->
+        <!-- Table -->
         <div class="table-card">
             <div class="table-scroll">
                 <table class="calendar-table" id="calendarTable">
@@ -1003,139 +564,88 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Row 1 -->
                         <tr>
                             <td>📋 Advising &amp; Registration</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-01-10">০৩–১০ জানু, ২০২৬</td>
                             <td class="col-summer" data-semester="summer" data-date="2026-05-15">০৯–১৫ মে, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-09-10">০৩–১০ সেপ, ২০২৬</td>
                         </tr>
-                        <!-- Row 2 -->
                         <tr>
                             <td>🎓 Orientation</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-01-08">০৮ জানু, ২০২৬</td>
                             <td class="col-summer" data-semester="summer" data-date="2026-05-11">১১ মে, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-09-08">০৮ সেপ, ২০২৬</td>
                         </tr>
-                        <!-- Row 3 -->
                         <tr>
                             <td>📘 Classes Start</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-01-10">১০ জানু, ২০২৬</td>
                             <td class="col-summer" data-semester="summer" data-date="2026-05-12">১২ মে, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-09-09">০৯ সেপ, ২০২৬</td>
                         </tr>
-                        <!-- Row 4 -->
-                        <tr>
-                            <td>🕌 Eid-Ul-Adha*</td>
-                            <td class="col-spring" data-semester="spring">—</td>
-                            <td class="col-summer" data-semester="summer" data-date="2026-05-31">২৬–৩১ মে, ২০২৬</td>
-                            <td class="col-fall" data-semester="fall">—</td>
-                        </tr>
-                        <!-- Row 5: Mid-Exam (clickable) -->
                         <tr>
                             <td>📝 Mid-Examination</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-02-28">২২–২৮ ফেব, ২০২৬</td>
-                            <td class="col-summer routine-trigger" data-semester="summer" id="midExamCell" onclick="toggleRoutine()">
-                                <span>২৭ জুন – ০৪ জুল, ২০২৬</span>
-                                <span class="tap-hint">👆 রুটিন দেখতে চাপুন</span>
-                                <span class="tap-icon">📂</span>
-                            </td>
+                            <td class="col-summer" data-semester="summer" data-date="2026-07-04">২৭ জুন – ০৪ জুল, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-11-04">২৮ অক্ট – ০৪ নভ, ২০২৬</td>
                         </tr>
-                        <!-- Row 6 -->
-                        <tr>
-                            <td>🌙 Eid-Ul-Fitr*</td>
-                            <td class="col-spring" data-semester="spring" data-date="2026-03-23">১৯–২৩ মার্চ, ২০২৬</td>
-                            <td class="col-summer" data-semester="summer">—</td>
-                            <td class="col-fall" data-semester="fall">—</td>
-                        </tr>
-                        <!-- Row 7 -->
                         <tr>
                             <td>📄 Final Examination</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-05-02">২৫ এপ্রি – ০২ মে, ২০২৬</td>
-                            <td class="col-summer" data-semester="summer" data-date="2026-08-27">১৯–২৭ আগস্ট, ২০২৬</td>
+                            <td class="col-summer routine-trigger" data-semester="summer" id="finalExamCell" onclick="toggleFinalRoutine()">
+                                <span>১৯–২৭ আগস্ট, ২০২৬</span>
+                                <span class="tap-hint">👆 রুটিন ও কাউন্টডাউন দেখুন</span>
+                            </td>
                             <td class="col-fall" data-semester="fall" data-date="2026-12-24">১৭–২৪ ডিসে, ২০২৬</td>
                         </tr>
-                        <!-- Row 8 -->
                         <tr>
                             <td>📊 Grade Submission</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-05-05">০৫ মে, ২০২৬</td>
                             <td class="col-summer" data-semester="summer" data-date="2026-08-30">৩০ আগস্ট, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-12-28">২৮ ডিসে, ২০২৬</td>
                         </tr>
-                        <!-- Row 9 -->
-                        <tr>
-                            <td>📢 Result Publication</td>
-                            <td class="col-spring" data-semester="spring" data-date="2026-05-06">০৬ মে, ২০২৬</td>
-                            <td class="col-summer" data-semester="summer" data-date="2026-08-31">৩১ আগস্ট, ২০২৬</td>
-                            <td class="col-fall" data-semester="fall" data-date="2026-12-29">২৯ ডিসে, ২০২৬</td>
-                        </tr>
-                        <!-- Row 10 -->
                         <tr>
                             <td>⏳ Semester Break</td>
                             <td class="col-spring" data-semester="spring" data-date="2026-05-08">০৬–০৮ মে, ২০২৬</td>
                             <td class="col-summer" data-semester="summer" data-date="2026-09-02">৩১ আগ–০২ সেপ, ২০২৬</td>
                             <td class="col-fall" data-semester="fall" data-date="2026-12-31">২৯–৩১ ডিসে, ২০২৬</td>
                         </tr>
-                        <!-- Row 11 -->
-                        <tr>
-                            <td>📋 Advising (Next Sem)</td>
-                            <td class="col-spring" data-semester="spring" data-date="2026-05-15">০৯–১৫ মে, ২০২৬</td>
-                            <td class="col-summer" data-semester="summer" data-date="2026-09-10">০৩–১০ সেপ, ২০২৬</td>
-                            <td class="col-fall" data-semester="fall" data-date="2027-01-09">০১–০৯ জানু, ২০২৭</td>
-                        </tr>
-                        <!-- Row 12 -->
-                        <tr>
-                            <td>📘 Classes Start (Next)</td>
-                            <td class="col-spring" data-semester="spring" data-date="2026-05-12">১২ মে, ২০২৬</td>
-                            <td class="col-summer" data-semester="summer" data-date="2026-09-09">০৯ সেপ, ২০২৬</td>
-                            <td class="col-fall" data-semester="fall" data-date="2027-01-10">১০ জানু, ২০২৭</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ===== Routine Panel ===== -->
-        <div class="routine-panel" id="routinePanel">
+        <!-- ===== Final Exam Routine Panel (Premium RGB) ===== -->
+        <div class="routine-panel" id="finalRoutinePanel">
             <div class="panel-header">
-                <h3>📝 Midterm Exam Routine</h3>
-                <button class="close-btn" onclick="toggleRoutine()">✕ বন্ধ করুন</button>
+                <h3>⚡ BATCH 48 - FINAL EXAM</h3>
+                <button class="close-btn" onclick="toggleFinalRoutine()">✕ বন্ধ করুন</button>
             </div>
-            <div class="meta-badge">🏷️ Batch: 48 &nbsp;|&nbsp; Section: H</div>
-            <table class="routine-table" id="routineTable">
-                <thead>
-                    <tr><th>তারিখ</th><th>বিষয়</th><th>সময়</th></tr>
-                </thead>
-                <tbody>
-                    <tr id="exam1" data-exam-date="2026-06-27" data-exam-time="11:30:00">
-                        <td>২৭-০৬-২০২৬</td><td>English</td>
-                        <td>১১:৩০ AM – ১:০০ PM <span class="countdown-chip" id="cd1">⏳</span></td>
-                    </tr>
-                    <tr id="exam2" data-exam-date="2026-06-29" data-exam-time="11:30:00">
-                        <td>২৯-০৬-২০২৬</td><td>Computer Fundamental</td>
-                        <td>১১:৩০ AM – ১:০০ PM <span class="countdown-chip" id="cd2">⏳</span></td>
-                    </tr>
-                    <tr id="exam3" data-exam-date="2026-07-01" data-exam-time="09:00:00">
-                        <td>০১-০৭-২০২৬</td><td>Intro to Software Engineering</td>
-                        <td>০৯:০০ AM – ১০:৩০ AM <span class="countdown-chip" id="cd3">⏳</span></td>
-                    </tr>
-                    <tr id="exam4" data-exam-date="2026-07-04" data-exam-time="11:30:00">
-                        <td>০৪-০৭-২০২৬</td><td>Bangladesh Studies</td>
-                        <td>১১:৩০ AM – ১:০০ PM <span class="countdown-chip" id="cd4">⏳</span></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="text-align:center; font-weight:700; color:var(--secondary); margin-top:18px; font-size:15px;">
-                ☘️ শুভকামনা তোমার মিডটার্মের জন্য! ☘️
+            
+            <!-- Countdown Box -->
+            <div class="countdown-box" id="countdownBox">
+                <div class="countdown-label">⏳ পরবর্তী পরীক্ষা পর্যন্ত বাকি</div>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="time-unit"><span id="days">00</span><small>দিন</small></div>
+                    <div class="time-unit"><span id="hours">00</span><small>ঘন্টা</small></div>
+                    <div class="time-unit"><span id="minutes">00</span><small>মিনিট</small></div>
+                    <div class="time-unit"><span id="seconds">00</span><small>সেকেন্ড</small></div>
+                </div>
+                <div class="next-exam-name" id="nextExamName">🎯 লোড হচ্ছে...</div>
+            </div>
+
+            <!-- Exam Cards List -->
+            <div class="exam-list" id="examList"></div>
+            
+            <p style="text-align:center; font-weight:700; color:var(--primary-light); margin-top:20px; font-size:15px;">
+                ☘️ শুভকামনা তোমার ফাইনাল পরীক্ষার জন্য! ☘️
             </p>
         </div>
 
-        <!-- ===== Footer ===== -->
+        <!-- Footer -->
         <div class="footer-note">
-            <span class="note-item"><span class="icon">🕌</span> * নির্ভর করে চাঁদ দেখা ও সরকারি ঘোষণার উপর</span>
             <span class="note-item"><span class="icon">📌</span> সূচি পরিবর্তন সাপেক্ষে</span>
             <span class="note-item"><span class="icon">💡</span> সফলতার জন্য প্রস্তুত থাকুন</span>
+            <span class="note-item"><span class="icon">✦</span> DIU · Dept of SWE</span>
         </div>
 
     </div>
@@ -1150,7 +660,7 @@
                 body.classList.add('android-mode');
                 androidBtn.classList.add('active');
                 desktopBtn.classList.remove('active');
-                const panel = document.getElementById('routinePanel');
+                const panel = document.getElementById('finalRoutinePanel');
                 if (panel.classList.contains('open')) panel.classList.remove('open');
             } else {
                 body.classList.remove('android-mode');
@@ -1163,9 +673,9 @@
             try { if (localStorage.getItem('diu-mode') === 'android') setMode('android'); } catch (_) {}
         })();
 
-        // ===== Toggle Routine Panel =====
-        function toggleRoutine() {
-            const panel = document.getElementById('routinePanel');
+        // ===== Toggle Final Routine Panel =====
+        function toggleFinalRoutine() {
+            const panel = document.getElementById('finalRoutinePanel');
             panel.classList.toggle('open');
             if (panel.classList.contains('open')) {
                 panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1175,80 +685,30 @@
         // ===== Live Clock =====
         function updateClock() {
             const now = new Date();
-            const opts = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
+            const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
             document.getElementById('clockText').textContent = now.toLocaleDateString('bn-BD', opts);
         }
         setInterval(updateClock, 1000);
         updateClock();
 
-        // ===== Bangla Numeral Helper =====
-        function toBanglaNum(n) {
-            return n.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
-        }
-
-        // ===== Past events & Countdowns =====
+        // ===== Past Events Logic =====
         function runLogic() {
             const now = new Date();
             document.querySelectorAll('.calendar-table td[data-date]').forEach(td => {
                 const d = new Date(td.getAttribute('data-date') + 'T23:59:59');
-                if (now > d) td.classList.add('past');
+                if (now > d && !td.classList.contains('routine-trigger')) td.classList.add('past');
             });
-            const midEnd = new Date('2026-07-04T23:59:59');
-            const midCell = document.getElementById('midExamCell');
-            if (now > midEnd) midCell.classList.add('past');
-
-            for (let i = 1; i <= 4; i++) {
-                const row = document.getElementById('exam' + i);
-                const chip = document.getElementById('cd' + i);
-                if (!row || !chip) continue;
-                const dateStr = row.getAttribute('data-exam-date');
-                const timeStr = row.getAttribute('data-exam-time');
-                const examStart = new Date(dateStr + 'T' + timeStr);
-                const examEnd = new Date(dateStr + 'T23:59:59');
-                row.classList.remove('exam-past');
-                if (now > examEnd) {
-                    row.classList.add('exam-past');
-                    chip.textContent = '✅ শেষ';
-                    chip.className = 'countdown-chip done';
-                } else if (now >= examStart && now <= examEnd) {
-                    chip.textContent = '📝 চলছে!';
-                    chip.className = 'countdown-chip live';
-                } else {
-                    const diff = examStart - now;
-                    if (diff > 0) {
-                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                        chip.textContent = '⏳ বাকি ' + toBanglaNum(days) + 'd ' + toBanglaNum(hours) + 'h ' +
-                            toBanglaNum(mins) + 'm';
-                        chip.className = 'countdown-chip';
-                    }
-                }
-            }
         }
         runLogic();
         setInterval(runLogic, 30000);
-        document.addEventListener('DOMContentLoaded', runLogic);
 
         // ===== Semester Filter =====
         let currentFilter = 'all';
-
         function filterSemester(semester) {
-            // Update active tab
             document.querySelectorAll('.semester-tab').forEach(tab => {
                 tab.classList.remove('active');
                 if (tab.dataset.semester === semester) tab.classList.add('active');
             });
-            // Toggle: if same tab clicked, reset to 'all'
             if (currentFilter === semester) {
                 semester = 'all';
                 document.querySelectorAll('.semester-tab').forEach(tab => {
@@ -1257,42 +717,132 @@
                 });
             }
             currentFilter = semester;
-
             const table = document.getElementById('calendarTable');
-            // Headers
-            const headers = table.querySelectorAll('thead th');
-            headers.forEach((th, index) => {
-                if (index === 0) return; // event name column always visible
-                const sem = th.dataset.semester;
-                if (semester === 'all' || sem === semester) {
-                    th.style.display = '';
+            table.querySelectorAll('thead th, tbody td').forEach(el => {
+                if (!el.dataset.semester) return;
+                if (semester === 'all' || el.dataset.semester === semester) {
+                    el.style.display = '';
                 } else {
-                    th.style.display = 'none';
-                }
-            });
-
-            // Data cells
-            const allTds = table.querySelectorAll('tbody td');
-            allTds.forEach(td => {
-                if (!td.dataset.semester) return; // first column (event name)
-                const sem = td.dataset.semester;
-                if (semester === 'all' || sem === semester) {
-                    td.style.display = '';
-                } else {
-                    td.style.display = 'none';
+                    el.style.display = 'none';
                 }
             });
         }
-
-        // Attach click events
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.semester-tab').forEach(tab => {
-                tab.addEventListener('click', function(e) {
-                    filterSemester(this.dataset.semester);
-                });
-            });
-            filterSemester('all'); // initial state
+        document.querySelectorAll('.semester-tab').forEach(tab => {
+            tab.addEventListener('click', function() { filterSemester(this.dataset.semester); });
         });
+
+        // ==========================================
+        // ===== Premium Final Exam Countdown ======
+        // ==========================================
+        const exams = [
+            { id: 1, name: 'English I', code: 'ENG 101', date: '2026-08-19', time: '12:00', color: '#ff0055' },
+            { id: 2, name: 'Computer Fundamentals', code: 'SE 111', date: '2026-08-22', time: '09:00', color: '#00f3ff' },
+            { id: 3, name: 'Intro to Software Engineering', code: 'SE 113 / SWE 111', date: '2026-08-24', time: '12:00', color: '#39ff14' },
+            { id: 4, name: 'Bangladesh Studies', code: 'BNS 101', date: '2026-08-27', time: '09:00', color: '#ffd700' }
+        ];
+
+        const colorGlowMap = {
+            '#ff0055': 'rgba(255, 0, 85, 0.4)',
+            '#00f3ff': 'rgba(0, 243, 255, 0.4)',
+            '#39ff14': 'rgba(57, 255, 20, 0.4)',
+            '#ffd700': 'rgba(255, 215, 0, 0.4)'
+        };
+
+        const examListEl = document.getElementById('examList');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const nextExamNameEl = document.getElementById('nextExamName');
+        const countdownBoxEl = document.getElementById('countdownBox');
+
+        const sortedExams = exams.sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time));
+
+        function initRenderCards() {
+            examListEl.innerHTML = '';
+            sortedExams.forEach(exam => {
+                const card = document.createElement('div');
+                card.className = 'exam-card';
+                card.id = `exam-${exam.id}`;
+                card.style.setProperty('--card-color', exam.color);
+
+                const dateObj = new Date(exam.date + 'T' + exam.time);
+                const banglaDate = dateObj.toLocaleDateString('bn-BD', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+                
+                const timeArr = exam.time.split(':');
+                let hours = parseInt(timeArr[0]);
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                const finalTime = `${hours}:${timeArr[1]} ${ampm}`;
+
+                card.innerHTML = `
+                    <div class="exam-info">
+                        <div class="exam-title">${exam.name} <span class="kata-badge">✅ সম্পন্ন</span></div>
+                        <div class="exam-code">${exam.code}</div>
+                        <div class="exam-date">
+                            📅 ${banglaDate} 
+                            <i>🕐 ${finalTime}</i>
+                        </div>
+                        <span class="status-badge" id="status-${exam.id}">⏳ অপেক্ষমান</span>
+                    </div>
+                    <div style="font-size: 2rem; opacity: 0.2; font-family: 'Orbitron';">▶</div>
+                `;
+                examListEl.appendChild(card);
+            });
+        }
+
+        function updateTimer() {
+            const now = new Date();
+            let nextExam = null;
+
+            sortedExams.forEach(exam => {
+                const examDateTime = new Date(exam.date + 'T' + exam.time);
+                const cardEl = document.getElementById(`exam-${exam.id}`);
+                const statusEl = document.getElementById(`status-${exam.id}`);
+
+                if (examDateTime < now) {
+                    if (!cardEl.classList.contains('completed')) {
+                        cardEl.classList.add('completed');
+                        statusEl.innerText = '🔴 সম্পন্ন';
+                    }
+                } else {
+                    if (!nextExam) nextExam = exam;
+                }
+            });
+
+            if (nextExam) {
+                const target = new Date(nextExam.date + 'T' + nextExam.time);
+                const diff = target - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    daysEl.textContent = String(days).padStart(2, '0');
+                    hoursEl.textContent = String(hours).padStart(2, '0');
+                    minutesEl.textContent = String(minutes).padStart(2, '0');
+                    secondsEl.textContent = String(seconds).padStart(2, '0');
+
+                    nextExamNameEl.innerHTML = `🎯 পরবর্তী: <strong style="color:${nextExam.color}">${nextExam.name}</strong>`;
+                    countdownBoxEl.style.border = `2px solid ${nextExam.color}`;
+                    countdownBoxEl.style.boxShadow = `0 0 25px ${colorGlowMap[nextExam.color]}`;
+                }
+            } else {
+                daysEl.textContent = '🎉';
+                hoursEl.textContent = '🎉';
+                minutesEl.textContent = '🎉';
+                secondsEl.textContent = '🎉';
+                nextExamNameEl.innerHTML = '🥳 সব পরীক্ষা সম্পন্ন! শুভকামনা!';
+                countdownBoxEl.style.border = '2px solid #ffd700';
+            }
+        }
+
+        // Initialize Countdown
+        initRenderCards();
+        updateTimer();
+        setInterval(updateTimer, 1000);
     </script>
 </body>
 </html>
